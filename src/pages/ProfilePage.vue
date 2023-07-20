@@ -52,6 +52,7 @@ export default {
     const route = useRoute()
 
 
+    // NOTE making this request will ensure that we keep the url param info rather than it being wiped away on refresh
     async function getProfile(){
       try {
         // NOTE the route params will tell us the id of the profile we are on, we are getting this from the vue router
