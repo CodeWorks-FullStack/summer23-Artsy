@@ -108,6 +108,7 @@ export default {
 
 .profileCover{
   height: 30vh;
+  // NOTE we are using the v-bind to access the computed coverImg property
   background-image: v-bind(coverImg);
   background-position: center;
   background-repeat: no-repeat;
