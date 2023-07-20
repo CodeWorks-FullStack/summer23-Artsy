@@ -16,6 +16,7 @@ class ProjectsService {
   async getProfileProjects(profileId) {
     // const res = await api.get(`api/projects?creatorId=${profileId}`)
 
+    // NOTE writing in the params like this allows us to pass more query params if we need to
     const res = await api.get('api/projects', {
       params: {
         creatorId: profileId,
