@@ -48,11 +48,13 @@ import { projectsService } from '../services/ProjectsService.js';
 export default {
   setup(){
 
+    // NOTE we need a way to access the router.js so we bring in useRoute()
     const route = useRoute()
 
 
     async function getProfile(){
       try {
+        // NOTE the route params will tell us the id of the profile we are on, we are getting this from the vue router
         const profileId = route.params.profileId
         // logger.log('route', route)
         await profilesService.getProfile(profileId)
@@ -64,6 +66,7 @@ export default {
 
     async function getProfileProjects(){
       try {
+        // NOTE takes in the param so that we only get projects related to this profileId
         const profileId = route.params.profileId
         await projectsService.getProfileProjects(profileId)
       } catch (error) {
@@ -81,6 +84,7 @@ export default {
     profile: computed(() => AppState.activeProfile),
     profileProjects: computed(() => AppState.projects),
 
+    // NOTE to make the coverImg the background we can compute it in so that it is accessible in our CSS
     coverImg: computed(() => `url(${AppState.activeProfile?.coverImg})`)
   }
   }

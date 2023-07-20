@@ -3,6 +3,8 @@
       <img class="img-fluid" :src="project.coverImg" alt="">
       <div class="d-flex align-items-center justify-content-between p-2">
         <h3>{{ project.title }}</h3>
+        <!-- NOTE routerLink to the profile, our params (if we specified any in the router.js) NEED to match the params we specified in the router.js -->
+        <!-- NOTE in the router.js our param is :profileId so when we access it with the router.js our param is profileId which we access through project.creatorId -->
         <router-link :to="{name: 'Profile', params: {profileId: project.creatorId}}">
           <img class="img-fluid avatar" :src="project.creator.picture" :alt="project.creator.name" :title="project.creator.name">
         </router-link>
